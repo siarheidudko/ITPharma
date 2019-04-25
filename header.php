@@ -2,6 +2,7 @@
 <html><head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="yandex-verification" content="7c01a836037e26bb" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap.min.css' ?>" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap-grid.min.css' ?>" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap-reboot.min.css' ?>" />
