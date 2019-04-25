@@ -11,3 +11,6 @@ Text Domain: itpharma
 
 Тема для сайта itpharma.by
 */
+#bodycontent{
+	margin: 10px;
+}
