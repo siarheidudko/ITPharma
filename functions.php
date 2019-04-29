@@ -132,17 +132,17 @@ function itpharma_customize_register($wp_customize) {
 		)
 	));
 	//код в подвале
-	$wp_customize->add_setting( 'itpharma_foother_code' , array(
+	$wp_customize->add_setting( 'itpharma_footer_code' , array(
 		'default' => '',
 	));
 	//контроллер кода в подвале
 	$wp_customize->add_control( new WP_Customize_Control(
 		$wp_customize,
-		'itpharma_foother_code_text', 
+		'itpharma_footer_code_text', 
 		array(
 			'label'    => __( 'HTML-код в подвале (google analitycs, yandex metrics и т.п.)', 'itpharma' ),
 			'section'  => 'itpharma_customizer',
-			'settings' => 'itpharma_foother_code',
+			'settings' => 'itpharma_footer_code',
 			'type'     => 'textarea',
 		)
 	));

@@ -13,7 +13,7 @@
 
 <?php wp_footer() ?>
 <?php 
-	$headercode = get_theme_mod('itpharma_foother_code');
+	$headercode = get_theme_mod('itpharma_footer_code');
 	if($headercode)
 		echo $headercode;
 ?>
