@@ -1,3 +1,15 @@
+<?php
+/**
+ * Основная тема для сайта itpharma.by
+ *
+ * @package ITPharma
+ * @subpackage ITPharma
+ * @since 1.0
+ * @version 1.0
+ * @author Siarhei Dudko
+ * @license MIT
+ */
+?>
 <!DOCTYPE html>
 <html><head>
 	<meta charset="utf-8" />
