@@ -3,9 +3,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="yandex-verification" content="7c01a836037e26bb" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap.min.css' ?>" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap-grid.min.css' ?>" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap-reboot.min.css' ?>" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri() ?>" />
 	<title><?php echo get_bloginfo("description") . ' - ' . get_page_by_path(get_page_uri())->post_title; ?></title>
 	<?php wp_head() ?>
@@ -23,6 +20,11 @@
 	</style>
 </head>
 <body  <?php body_class() ?>>
+<?php 
+	$headercode = get_theme_mod('itpharma_header_code');
+	if($headercode)
+		echo $headercode;
+?>
 <nav class="navbar navbar-expand-lg <?php 
 	$headerstyle = get_theme_mod('itpharma_header_style');
 	switch($headerstyle){
@@ -39,7 +41,7 @@
 ?>" style="z-index: 1000;<?php 
 	$headercolor = get_theme_mod('itpharma_header_background');
 	if($headercolor){ echo 'background-color: '.$headercolor.';'; } 
-?>">
+?>" aria-label="<?php esc_attr_e( 'Основное меню', 'itpharma' ); ?>">
 	<a class="navbar-brand" href="#"><?php 
 		$logotext = get_bloginfo("name");
 		if(has_custom_logo()){

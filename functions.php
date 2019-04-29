@@ -5,17 +5,17 @@ function itpharma_wptuts_scripts_basic()
 	wp_register_script( 'jquery', get_stylesheet_directory_uri() . '/js/jquery-3.4.0.min.js', '', '3.4.0' );  
     wp_enqueue_script( 'jquery' );
 	
-	wp_register_script( 'bootstrapmin', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', '', '4.3.1' );  
-    wp_enqueue_script( 'bootstrapmin' );
+	wp_register_script( 'bootstrapminjs', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', '', '4.3.1' );  
+    wp_enqueue_script( 'bootstrapminjs' );
 	
-//    wp_register_script( 'google_analytics', 'https://www.googletagmanager.com/gtag/js?id=UA-83723724-2', '', '0.0.1' );
-//    wp_enqueue_script( 'google_analytics' );
-    
-//    wp_register_script( 'google_analytics_my', get_stylesheet_directory_uri() . '/js/g_analytics_my.js', 'google_analytics', '0.0.1' );  
-//    wp_enqueue_script( 'google_analytics_my' );
-    
-//    wp_register_script( 'yandex_metrics', get_stylesheet_directory_uri() . '/js/y_metrics.js', '', '0.0.1' );  
-//    wp_enqueue_script( 'yandex_metrics' );
+	wp_register_style( 'bootstrapmincss', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', '', '4.3.1' );  
+    wp_enqueue_style( 'bootstrapmincss' );
+	
+	wp_register_style( 'bootstrap-gridmincss', get_stylesheet_directory_uri() . '/css/bootstrap-grid.min.css', '', '4.3.1' );  
+    wp_enqueue_style( 'bootstrap-gridmincss' );
+	
+	wp_register_style( 'bootstrap-rebootmincss', get_stylesheet_directory_uri() . '/css/bootstrap-reboot.min.css', '', '4.3.1' );  
+    wp_enqueue_style( 'bootstrap-rebootmincss' );
 }  
 add_action( 'wp_enqueue_scripts', 'itpharma_wptuts_scripts_basic' );
 
@@ -60,7 +60,7 @@ function itpharma_theme_support() {
 	);
 	add_theme_support( 'custom-background', $defaults );
 	//добавляю меню
-	register_nav_menu( 'primary', 'Header menu' );
+	register_nav_menu( 'primary', 'Основное меню' );
 }
 add_filter( 'after_setup_theme', 'itpharma_theme_support' );
 
@@ -76,7 +76,8 @@ function itpharma_customize_register($wp_customize) {
 		'default' => 'dark',
 	));
 	//контроллер стиля шапки
-	$wp_customize->add_control(
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
 		'itpharma_header_style_type', 
 		array(
 			'label'    => __( 'Стиль шапки', 'itpharma' ),
@@ -88,7 +89,7 @@ function itpharma_customize_register($wp_customize) {
 				'light' => 'Светлый фон',
 			),
 		)
-	);
+	));
 	//цвет шапки
 	$wp_customize->add_setting( 'itpharma_header_background' , array(
 		'default' => '#007bff',
@@ -103,6 +104,36 @@ function itpharma_customize_register($wp_customize) {
 			'section'    => 'itpharma_customizer',
 			'settings'   => 'itpharma_header_background',
 				'priority'   => 1
+		)
+	));
+	//код в шапке
+	$wp_customize->add_setting( 'itpharma_header_code' , array(
+		'default' => '',
+	));
+	//контроллер кода в шапке
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'itpharma_header_code_text', 
+		array(
+			'label'    => __( 'HTML-код в шапке', 'itpharma' ),
+			'section'  => 'itpharma_customizer',
+			'settings' => 'itpharma_header_code',
+			'type'     => 'textarea',
+		)
+	));
+	//код в подвале
+	$wp_customize->add_setting( 'itpharma_foother_code' , array(
+		'default' => '',
+	));
+	//контроллер кода в подвале
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'itpharma_foother_code_text', 
+		array(
+			'label'    => __( 'HTML-код в подвале (google analitycs, yandex metrics и т.п.)', 'itpharma' ),
+			'section'  => 'itpharma_customizer',
+			'settings' => 'itpharma_foother_code',
+			'type'     => 'textarea',
 		)
 	));
 }

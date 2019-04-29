@@ -1,4 +1,8 @@
 <?php wp_footer() ?>
-<noscript><div><img src="https://mc.yandex.ru/watch/53439517" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<?php 
+	$headercode = get_theme_mod('itpharma_foother_code');
+	if($headercode)
+		echo $headercode;
+?>
 </body>
 </html> 
