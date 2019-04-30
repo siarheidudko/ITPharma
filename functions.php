@@ -116,6 +116,21 @@ function itpharma_customize_register($wp_customize) {
 				'priority'   => 1
 		)
 	));
+	//код внутри блока <HEAD></HEAD>
+	$wp_customize->add_setting( 'itpharma_head_code' , array(
+		'default' => '',
+	));
+	//контроллер кода внутри блока <HEAD></HEAD>
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'itpharma_head_code_text', 
+		array(
+			'label'    => __( 'HTML-код внутри блока <HEAD></HEAD>', 'itpharma' ),
+			'section'  => 'itpharma_customizer',
+			'settings' => 'itpharma_head_code',
+			'type'     => 'textarea',
+		)
+	));
 	//код в шапке
 	$wp_customize->add_setting( 'itpharma_header_code' , array(
 		'default' => '',
@@ -125,7 +140,7 @@ function itpharma_customize_register($wp_customize) {
 		$wp_customize,
 		'itpharma_header_code_text', 
 		array(
-			'label'    => __( 'HTML-код в шапке', 'itpharma' ),
+			'label'    => __( 'HTML-код в шапке (над меню, сразу после <BODY>)', 'itpharma' ),
 			'section'  => 'itpharma_customizer',
 			'settings' => 'itpharma_header_code',
 			'type'     => 'textarea',
@@ -140,7 +155,7 @@ function itpharma_customize_register($wp_customize) {
 		$wp_customize,
 		'itpharma_footer_code_text', 
 		array(
-			'label'    => __( 'HTML-код в подвале (google analitycs, yandex metrics и т.п.)', 'itpharma' ),
+			'label'    => __( 'HTML-код в подвале (перед </BODY>)', 'itpharma' ),
 			'section'  => 'itpharma_customizer',
 			'settings' => 'itpharma_footer_code',
 			'type'     => 'textarea',

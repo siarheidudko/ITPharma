@@ -29,6 +29,11 @@
 			}
 		?> }
 	</style>
+	<?php 
+		$headercode = get_theme_mod('itpharma_head_code');
+		if($headercode)
+			echo $headercode;
+	?>
 </head>
 <body  <?php body_class() ?>>
 <?php 
