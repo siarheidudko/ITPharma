@@ -10,7 +10,10 @@
  * @license MIT
  */
 ?>
-
+<?php 
+	if(is_active_sidebar('itpharma-over-window-widget')) { dynamic_sidebar( 'itpharma-over-window-widget' ); }
+	if(is_active_sidebar('itpharma-before-bottom-widget')) { dynamic_sidebar( 'itpharma-before-bottom-widget' ); } 
+?>
 <?php wp_footer() ?>
 <?php 
 	$headercode = get_theme_mod('itpharma_footer_code');

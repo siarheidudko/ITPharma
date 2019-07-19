@@ -164,17 +164,39 @@ function itpharma_customize_register($wp_customize) {
 }
 add_action( 'customize_register', 'itpharma_customize_register' );
 
-
-function wpsites_after_post_widget( $content ) {
-	if ( is_singular( array( 'post', 'page' ) ) && is_active_sidebar( 'after-post' ) && is_main_query() ) {
-		dynamic_sidebar('after-post');
-	}
-	return $content;
+//виджеты
+function arphabet_widgets_init() {
+	register_sidebar( array(
+		'name'          => 'Виджет перед меню',
+		'id'            => 'itpharma-before-menu-widget',
+		'before_widget' => '<div class="itph_wdgt itph_wdgt_mn" id="itph_wdgt_mn_bef">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Виджет после меню (перед постом)',
+		'id'            => 'itpharma-after-menu-widget',
+		'before_widget' => '<div class="itph_wdgt itph_wdgt_mn" id="itph_wdgt_mn_aftr">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Виджет перед подвалом (после поста)',
+		'id'            => 'itpharma-before-bottom-widget',
+		'before_widget' => '<div class="itph_wdgt itph_wdgt_bt" id="itph_wdgt_bt_bef">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Виджет в правом нижнем углу (поверх страницы)',
+		'id'            => 'itpharma-over-window-widget',
+		'before_widget' => '<div class="itph_wdgt" id="itph_wdgt_ovr_wndw">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
 }
-add_filter( 'the_content', 'wpsites_after_post_widget' );
-
-register_sidebar( array(
-	'id'          => 'after-post',
-	'name'        => 'Виджет после поста',
-	'description' => __( 'Виджет после поста.', 'text_domain' ),
-) );
+add_action( 'widgets_init', 'arphabet_widgets_init' );

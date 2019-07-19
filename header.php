@@ -36,6 +36,7 @@
 	?>
 </head>
 <body  <?php body_class() ?>>
+<?php if(is_active_sidebar('itpharma-before-menu-widget')) { dynamic_sidebar( 'itpharma-before-menu-widget' ); } ?>
 <?php 
 	$headercode = get_theme_mod('itpharma_header_code');
 	if($headercode)
@@ -88,3 +89,4 @@
 		</ul>
 	</div>
 </nav>
+<?php if(is_active_sidebar('itpharma-after-menu-widget')) { dynamic_sidebar( 'itpharma-after-menu-widget' ); } ?>

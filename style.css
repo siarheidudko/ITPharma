@@ -11,5 +11,14 @@ Text Domain: itpharma
 Tags: black, brown, orange, tan, white, yellow, multicolor, light, dark, custom-color, one-column, top-sidebar, flexible-width, custom-header, custom-menu, microformats, bootstrap
 */
 #bodycontent{
-	margin: 10px;
+	margin: 10pt;
+}
+#itph_wdgt_ovr_wndw{
+	position: fixed;
+    right: 5pt;
+    top: 80%;
+    width:300pt;
+    height:100pt;  
+    display: block;
+	z-index:99999999;
 }
