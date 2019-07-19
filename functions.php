@@ -163,3 +163,18 @@ function itpharma_customize_register($wp_customize) {
 	));
 }
 add_action( 'customize_register', 'itpharma_customize_register' );
+
+
+function wpsites_after_post_widget( $content ) {
+	if ( is_singular( array( 'post', 'page' ) ) && is_active_sidebar( 'after-post' ) && is_main_query() ) {
+		dynamic_sidebar('after-post');
+	}
+	return $content;
+}
+add_filter( 'the_content', 'wpsites_after_post_widget' );
+
+register_sidebar( array(
+	'id'          => 'after-post',
+	'name'        => 'Виджет после поста',
+	'description' => __( 'Виджет после поста.', 'text_domain' ),
+) );
